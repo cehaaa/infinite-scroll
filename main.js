@@ -4,7 +4,7 @@ class App {
 	#baseUrl = "https://jsonplaceholder.typicode.com/posts";
 	constructor() {
 		this.page = 1;
-		this.limit = 4;
+		this.limit = 5;
 		this.notificationList = document.querySelector("#notification-list");
 
 		this.notificationListObserver = new IntersectionObserver(
