@@ -5,8 +5,6 @@ class App {
 	constructor() {
 		this.page = 1;
 		this.limit = 4;
-		this.notificationCardCounter = 0;
-		this.isLoading = false;
 		this.notificationList = document.querySelector("#notification-list");
 
 		this.notificationListObserver = new IntersectionObserver(
@@ -14,9 +12,7 @@ class App {
 		);
 	}
 	async #fetchNotifications() {
-		this.isLoading = true;
 		this.displaySkeleton();
-
 		try {
 			await new Promise(resolve => setTimeout(resolve, 1000));
 			const response = await fetch(
@@ -28,8 +24,6 @@ class App {
 		} catch (error) {
 			console.error("Failed to fetch notifications:", error);
 		}
-
-		this.isLoading = false;
 	}
 	displaySkeleton() {
 		const skeletons = Array.from({ length: this.limit })
@@ -47,10 +41,7 @@ class App {
 		const notificationCards = notifications
 			.map(notification => {
 				const notificationCard = new NotificationCard();
-				return notificationCard.render({
-					number: ++this.notificationCardCounter,
-					...notification,
-				});
+				return notificationCard.render({ ...notification });
 			})
 			.join("");
 		this.notificationList.innerHTML += notificationCards;
