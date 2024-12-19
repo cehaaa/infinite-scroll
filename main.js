@@ -19,10 +19,11 @@ class App {
 				`${this.#baseUrl}?_page=${this.page}&_limit=${this.limit}`
 			);
 			const data = await response.json();
-			this.removeSkeleton();
 			this.displayNotification(data);
 		} catch (error) {
 			console.error("Failed to fetch notifications:", error);
+		} finally {
+			this.removeSkeleton();
 		}
 	}
 	displaySkeleton() {
