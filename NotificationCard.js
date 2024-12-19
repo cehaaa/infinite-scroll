@@ -24,7 +24,7 @@ export class NotificationCard {
 						<h3 class="text-zinc-600 font-medium line-clamp-2 md:line-clamp-none first-letter:uppercase">${title}</h3>
 						<p class="text-sm text-zinc-400 flex-none">5h ago</p>
 					</div>
-          <p class="text-sm text-zinc-500 mt-1 md:mt-2 line-clamp-2 md:line-clamp-none">${body}.</p>
+          <p class="text-sm text-zinc-500 mt-1 md:mt-2 line-clamp-2 md:line-clamp-none first-letter:uppercase">${body}.</p>
         </div>
       </figure>
     `;
