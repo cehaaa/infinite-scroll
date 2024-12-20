@@ -61,7 +61,7 @@ class App {
 	}
 	#handleIntersect(entries) {
 		entries.forEach(async entry => {
-			if (entry.isIntersecting && !this.isLoading) {
+			if (entry.isIntersecting) {
 				this.page++;
 				await this.#fetchNotifications();
 				this.observeLastCard();
